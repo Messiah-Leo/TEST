@@ -5,6 +5,7 @@
 #include <string>
 #include <dirent.h>
 
+
 struct Point {
     double x, y, z;
 };
@@ -16,21 +17,6 @@ struct Element {
 
 int main() {
     std::ifstream fin("main.msh");
-    char *buffer;                     //存放路径的变量
-    if((buffer = getcwd(NULL, 0)) == NULL)
-    {
-        perror("getcwd error");
-    }
-    else
-    {
-        printf("path:%s\n", buffer);
-        free(buffer);
-    }
-    if (!fin.is_open()) {
-        std::cerr << "无法打开文件！" << std::endl;
-        return -1;
-    }
-
     std::string line;
     std::vector<Point> points;
     std::vector<Element> elements;
